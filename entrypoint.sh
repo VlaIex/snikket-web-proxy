@@ -20,4 +20,6 @@ if [ "${#SNIKKET_DOMAIN_ASCII}" -gt 35 ]; then
 	sed 's/server_names_hash_bucket_size .*$/server_names_hash_bucket_size 128;/' /etc/nginx/nginx.conf;
 fi
 
+chown -R www-data:adm /var/log/nginx
+
 exec s6-svscan /etc/sv
